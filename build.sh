@@ -27,18 +27,29 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #install ctcd
+echo "\n\n####### Building ctcd\n\n"
+echo "### go get glide"
 go get -u github.com/Masterminds/glide
+echo "### download ctcd"
 (cd src/github.com/ ; mkdir jadeblaquiere )
 go get github.com/jadeblaquiere/ctcd
+echo "### glide install ctcd"
 (cd src/github.com/jadeblaquiere/ctcd ; ~/workspace/bin/glide install )
+echo "### go install ctcd"
 (cd src/github.com/jadeblaquiere/ctcd ; go install . ./cmd/... )
 
 #install msgstore
+echo "\n\n####### Building ctcd\n\n"
+echo "### git clone"
 git clone https://github.com/jadeblaquiere/msgstore.git
+echo "### apt-get update"
 sudo apt-get update
+echo "### apt-get install leveldb"
 sudo apt-get install -y libleveldb1 libleveldb-dev
+echo "### pip install dependencies"
 sudo pip3 install tornado requests requests_futures plyvel pycrypto
 sudo pip3 install git+https://github.com/jadeblaquiere/ecpy.git
 sudo pip3 install git+https://github.com/jadeblaquiere/python-ctcoinlib.git
+echo "### create msggages, recv directories"
 (cd msgstore ; mkdir messages)
 (cd msgstore ; mkdir recv)
