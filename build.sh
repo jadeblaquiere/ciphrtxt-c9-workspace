@@ -26,5 +26,19 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+#install ctcd
 go get -u github.com/Masterminds/glide
+(cd src/github.com/ ; mkdir jadeblaquiere )
+go get github.com/jadeblaquiere/ctcd
+(cd src/github.com/jadeblaquiere/ctcd ; ~/workspace/bin/glide install )
+(cd src/github.com/jadeblaquiere/ctcd ; go install . ./cmd/... )
 
+#install msgstore
+git clone https://github.com/jadeblaquiere/msgstore.git
+sudo apt-get update
+sudo apt-get install -y libleveldb1 libleveldb-dev
+sudo pip3 install tornado requests requests_futures plyvel pycrypto
+sudo pip3 install git+https://github.com/jadeblaquiere/ecpy.git
+sudo pip3 install git+https://github.com/jadeblaquiere/python-ctcoinlib.git
+(cd msgstore ; mkdir messages)
+(cd msgstore ; mkdir recv)
