@@ -27,7 +27,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #install ctcd
-echo "\n\n####### Building ctcd\n\n"
+echo "####### Building ctcd #######"
 echo "### go get glide"
 go get -u github.com/Masterminds/glide
 echo "### download ctcd"
@@ -39,7 +39,7 @@ echo "### go install ctcd"
 (cd src/github.com/jadeblaquiere/ctcd ; go install . ./cmd/... )
 
 #install msgstore
-echo "\n\n####### Building ctcd\n\n"
+echo "####### Building msgstore #######"
 echo "### git clone"
 git clone https://github.com/jadeblaquiere/msgstore.git
 echo "### apt-get update"
