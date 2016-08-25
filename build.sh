@@ -50,6 +50,7 @@ echo "### pip install dependencies"
 sudo pip3 install tornado requests requests_futures plyvel pycrypto
 sudo pip3 install git+https://github.com/jadeblaquiere/ecpy.git
 sudo pip3 install git+https://github.com/jadeblaquiere/python-ctcoinlib.git
+sudo pip3 install git+https://github.com/jadeblaquiere/ciphrtxt-lib.git
 echo "### create msggages, recv directories"
 (cd msgstore ; mkdir messages)
 (cd msgstore ; mkdir recv)
