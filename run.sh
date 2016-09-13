@@ -34,7 +34,7 @@ RPCPASSWORD="rpcpass"
 NAKPRIV="ca92102f1fde262153ceeeaff7f5e4e98077dfb2adfa829e69581d0115acb83c"
 
 
-~/workspace/bin/ctcd --nodnsseed --addpeer indigo.bounceme.net --addpeer coopr8.com --txindex --rpcuser=$RPCUSERNAME --rpcpass=$RPCPASSWORD --miningaddr $MININGPUBKEY &
+~/workspace/bin/ctcd --nodnsseed --addpeer indigo.bounceme.net --addpeer indigo.ciphrtxt.com --addpeer violet.ciphrtxt.com --txindex --rpcuser=$RPCUSERNAME --rpcpass=$RPCPASSWORD --miningaddr $MININGPUBKEY &
 cd ~/workspace/msgstore
 python3 ./app.py --rpcuser=$RPCUSERNAME --rpcpass=$RPCPASSWORD --exthost=$C9_HOSTNAME --extport=80 --listenport=$PORT --nakpriv=$NAKPRIV 
 wait
