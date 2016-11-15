@@ -32,13 +32,13 @@ echo "### go get glide"
 go get -u github.com/Masterminds/glide
 echo "### download ctcd"
 (cd src/github.com/ ; mkdir jadeblaquiere )
-go get github.com/jadeblaquiere/ctcrpcclient
-go get github.com/jadeblaquiere/ctcutil
-go get github.com/jadeblaquiere/ctcd
-echo "### glide install ctcd"
-(cd src/github.com/jadeblaquiere/ctcd ; ~/workspace/bin/glide install )
-echo "### go install ctcd"
-(cd src/github.com/jadeblaquiere/ctcd ; go install . ./cmd/... )
+go get github.com/jadeblaquiere/cttrpcclient
+go get github.com/jadeblaquiere/cttutil
+go get github.com/jadeblaquiere/cttd
+echo "### glide install cttd"
+(cd src/github.com/jadeblaquiere/cttd ; ~/workspace/bin/glide install )
+echo "### go install cttd"
+(cd src/github.com/jadeblaquiere/cttd ; go install . ./cmd/... )
 
 #install msgstore
 echo "####### Building msgstore #######"
