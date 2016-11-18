@@ -43,8 +43,8 @@ echo "### go install cttd"
 
 #install msgstore
 echo "### go install ciphrtxt-go/cmd/msgstore"
+go get github.com/kataras/iris
 go get github.com/iris-contrib/middleware/logger
-go get go get github.com/iris-contrib/middleware/logger
 (cd src/github.com/jadeblaquiere/ciphrtxt-go ; go install ./cmd/msgstore/. )
 mkdir ~/workspace/msgstore-data
 mkdir ~/workspace/msgstore-data/receive
