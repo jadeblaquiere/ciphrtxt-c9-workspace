@@ -53,7 +53,7 @@ echo "### go install cttd"
 #install msgstore
 echo "### go install ciphrtxt-go/cmd/msgstore"
 go get gopkg.in/kataras/iris.v5
-(cd ~/workspace/src/gopkg.in/kataras ; rm -rf iris.v5 ; git clone https://github.com/jadeblaquiere/iris ; ln -s iris iris.v5 ; cd iris.v5 ; git checkout v5 ; go install .)
+(cd ~/workspace/src/gopkg.in/kataras ; rm -rf iris.v5 ; git clone https://github.com/jadeblaquiere/iris ; ln -s iris iris.v5 ; cd iris.v5 ; git checkout 5.0.0 ; go install .)
 go get gopkg.in/iris-contrib/middleware.v5/logger
 (cd src/github.com/jadeblaquiere/ciphrtxt-go ; go install ./cmd/msgstore/. )
 mkdir ~/workspace/msgstore-data
