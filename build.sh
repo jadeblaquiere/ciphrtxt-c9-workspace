@@ -39,6 +39,9 @@ echo "export GOROOT=/usr/lib/go-1.8" >> ~/.profile
 echo "####### Building ctcd #######"
 echo "### go get glide"
 go get -u github.com/Masterminds/glide
+echo "##### fetching specific branch of iris #####"
+(cd src/github.com/ ; mkdir kataras )
+(cd src/github.com/kataras ; git clone -b withtray-v7 https://github.com/kataras/iris )
 echo "### download ctcd"
 (cd src/github.com/ ; mkdir jadeblaquiere )
 go get github.com/jadeblaquiere/ciphrtxt-go
