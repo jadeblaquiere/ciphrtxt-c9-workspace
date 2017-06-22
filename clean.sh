@@ -28,6 +28,5 @@
 
 # THE FOLLOWING VALUES SHOULD BE CHANGED FOR YOUR ENVIRONMENT!
 
-(rm -rf ~/.ctcd)
-(cd ~/workspace/msgstore/messages/ ; find . -type f -print | xargs rm)
-(cd ~/workspace/msgstore ; rm -rf msgdb nakdb)
+(rm -rf ~/.cttd)
+(rm -rf ~/workspace/msgstore-data/* )
