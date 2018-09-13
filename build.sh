@@ -27,9 +27,9 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # need golang 1.10 for cttd
-sudo add-apt-repository ppa:jonathonf/golang
+sudo add-apt-repository -y ppa:jonathonf/golang
 sudo apt-get update
-sudo apt-get install golang-1.10
+sudo apt-get install -y golang-1.10
 
 export PATH=~/workspace/bin:$PATH
 export PATH=/usr/lib/go-1.10/bin:$PATH
@@ -41,10 +41,10 @@ echo "export GOROOT=/usr/lib/go-1.10" >> ~/.profile
 go get github.com/jadeblaquiere/cttd
 
 # need protoc v3 and protoc-gen-go for cttwallet
-sudo add-apt-repository ppa:maarten-fonville/protobuf
+sudo add-apt-repository -y ppa:maarten-fonville/protobuf
 sudo apt-get update
 
-sudo apt-get install protobuf-compiler
+sudo apt-get install -y protobuf-compiler
 go get github.com/golang/protobuf/protoc-gen-go
 
 # regenerate protobuf generated interface
