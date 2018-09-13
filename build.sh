@@ -26,39 +26,32 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#install golang-1.8
-sudo add-apt-repository -y ppa:jonathonf/golang-1.8
+# need golang 1.10 for cttd
+sudo add-apt-repository ppa:jonathonf/golang
 sudo apt-get update
-sudo apt-get install -y golang-1.8
-export PATH=/usr/lib/go-1.8/bin:$PATH
-echo "export PATH=/usr/lib/go-1.8/bin:\$PATH" >> ~/.profile
-export GOROOT=/usr/lib/go-1.8
-echo "export GOROOT=/usr/lib/go-1.8" >> ~/.profile
+sudo apt-get install golang-1.10
 
-#install ctcd
-echo "####### Building ctcd #######"
-echo "### go get glide"
-go get -u github.com/Masterminds/glide
-echo "##### fetching specific branch of iris #####"
-(cd src/github.com/ ; mkdir kataras )
-(cd src/github.com/kataras ; git clone -b withtray-v7 https://github.com/kataras/iris )
-echo "### download ctcd"
-(cd src/github.com/ ; mkdir jadeblaquiere )
-go get github.com/jadeblaquiere/ciphrtxt-go
-go get github.com/jadeblaquiere/cttrpcclient
-go get github.com/jadeblaquiere/cttutil
+export PATH=~/workspace/bin:$PATH
+export PATH=/usr/lib/go-1.10/bin:$PATH
+echo "export PATH=~/workspace/bin:\$PATH" >> ~/.profile
+echo "export PATH=/usr/lib/go-1.10/bin:\$PATH" >> ~/.profile
+export GOROOT=/usr/lib/go-1.10
+echo "export GOROOT=/usr/lib/go-1.10" >> ~/.profile
+
 go get github.com/jadeblaquiere/cttd
-echo "### glide install cttd"
-(cd src/github.com/jadeblaquiere/cttd ; ~/workspace/bin/glide install )
-echo "### go install cttd"
-(cd src/github.com/jadeblaquiere/cttd ; go install . ./cmd/... )
 
-#install msgstore
-echo "### go install ciphrtxt-go/cmd/msgstore"
-#go get gopkg.in/kataras/iris.v5
-#(cd ~/workspace/src/gopkg.in/kataras ; rm -rf iris.v5 ; git clone https://github.com/jadeblaquiere/iris ; ln -s iris iris.v5 ; cd iris.v5 ; git checkout 5.0.0 ; go install .)
-#go get gopkg.in/iris-contrib/middleware.v5/logger
-(cd src/github.com/jadeblaquiere/ciphrtxt-go ; go install ./cmd/msgstore/. )
-mkdir ~/workspace/msgstore-data
-mkdir ~/workspace/msgstore-data/receive
-(cd ~/workspace/src/github.com/jadeblaquiere/ciphrtxt-go/cmd/msgstore/ ; tar cvf - static templates ) | (cd ~/workspace/msgstore-data/ ; tar xf - )
+# need protoc v3 and protoc-gen-go for cttwallet
+sudo add-apt-repository ppa:maarten-fonville/protobuf
+sudo apt-get update
+
+sudo apt-get install protobuf-compiler
+go get github.com/golang/protobuf/protoc-gen-go
+
+# regenerate protobuf generated interface
+pushd src/github.com/jadeblaquiere
+git clone https://github.com/jadeblaquiere/cttwallet.git
+cd cttwallet/rpc
+sh regen.sh
+popd
+
+go get github.com/jadeblaquiere/cttwallet

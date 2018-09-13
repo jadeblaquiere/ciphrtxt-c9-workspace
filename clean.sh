@@ -29,4 +29,3 @@
 # THE FOLLOWING VALUES SHOULD BE CHANGED FOR YOUR ENVIRONMENT!
 
 (rm -rf ~/.cttd)
-(rm -rf ~/workspace/msgstore-data/* )
