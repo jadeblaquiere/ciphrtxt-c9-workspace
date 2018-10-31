@@ -144,6 +144,25 @@ make
 sudo make install
 cd ..
 
+sudo add-apt-repository -y ppa:ondrej/nginx-mainline
+sudo apt-get update
+sudo apt-get install -y openssl libssl1.1 libssl-dev
+
+git clone https://github.com/jadeblaquiere/libdill.git
+cd libdill
+autoreconf --install
+case "$OSTYPE" in
+  linux*)
+    ./configure --prefix=/usr --enable-tls
+    ;;
+  darwin*)
+    ./configure --enable-tls
+    ;;
+esac
+make
+sudo make install
+cd ..
+
 git clone https://github.com/jadeblaquiere/ctclient.git
 cd ctclient
 autoreconf --install
